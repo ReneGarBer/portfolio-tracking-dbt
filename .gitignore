@@ -3,3 +3,11 @@
 target/
 dbt_packages/
 logs/
+Scripts/
+Lib/
+Include/
+profiles.yml
+dbt_project_local.yml
+.user.yml
+pyvenv.cfg
+
