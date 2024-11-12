@@ -46,5 +46,4 @@ sources:
             description: The currency for the monetary amounts of the position.
             tests:
               - not_null
-
                   
