@@ -1,0 +1,20 @@
+version: 2
+
+snapshots:
+  - name: SNSH_ABC_BANK_POSITION
+    columns:
+      - name: POSITION_HKEY
+        data_tests:
+          - no_hash_collisions:
+              hashed_fields: ACCOUNT_CODE, SECURITY_CODE
+      - name: POSITION_HDIFF
+        data_tests:
+          - no_hash_collisions:
+              hashed_fields: "{{ macros.as_sql_list(
+                  ['ACCOUNT_CODE', 'SECURITY_CODE',
+                  'SECURITY_NAME', 'EXCHANGE_CODE',
+                  'REPORT_DATE', 'QUANTITY', 'COST_BASE',
+                  'POSITION_VALUE', 'CURRENCY_CODE'
+                  ]
+                )
+              }}"

@@ -59,10 +59,14 @@ snapshots:
 seeds:
   +schema: seed_data
   portfolio_tracking:
-    ABC_Bank_SECURITY_INFO:
+    ABC_BANK_SECURITY_INFO:
       +post-hook:
         - "UPDATE {{ this }} SET LOAD_TS = '{{ run_started_at.astimezone(modules.pytz.timezone('Mexico/General')) }}' WHERE LOAD_TS is null"
       +column_types:
         {
           LOAD_TS: TIMESTAMP_TZ
         }
+tests:
+  portfolio_tracking:
+    +enabled: true
+    +severity: warn
